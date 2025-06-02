@@ -3,17 +3,22 @@ import java.util.Scanner;
 public class Ejerccio2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingresa una cadena: ");
-        String cadena = scanner.nextLine();
+        System.out.print("Ingresa una frase: ");
+        String frase = scanner.nextLine();
 
-        String resultado = "";
-        for (int i = 0; i < cadena.length(); i++) {
-            if (cadena.charAt(i) != ' ') {
-                resultado += cadena.charAt(i);
+        int contador = 0;
+        boolean dentroDePalabra = false;
+
+        for (int i = 0; i < frase.length(); i++) {
+            if (frase.charAt(i) != ' ' && !dentroDePalabra) {
+                dentroDePalabra = true;
+                contador++;
+            } else if (frase.charAt(i) == ' ') {
+                dentroDePalabra = false;
             }
         }
 
-        System.out.println("Cadena sin espacios: " + resultado);
-        scanner.close(); // <- Esto elimina la advertencia
+        System.out.println("Cantidad de palabras: " + contador);
+        scanner.close(); // Buena práctica para cerrar el Scanner
     }
 }

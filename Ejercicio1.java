@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Ejerccio1 {
+public class Ejercicio1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingresa una frase: ");
@@ -19,5 +19,7 @@ public class Ejerccio1 {
         }
 
         System.out.println("Cantidad de palabras: " + contador);
+
+        scanner.close(); // Buen hábito cerrar el Scanner
     }
 }

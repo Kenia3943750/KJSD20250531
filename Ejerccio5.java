@@ -15,5 +15,7 @@ public class Ejerccio5 {
         }
 
         System.out.println("Cantidad de veces que aparece 'a' o 'A': " + contador);
+
+        scanner.close(); // <-- Aquí cerramos el Scanner para evitar warnings
     }
 }

@@ -1,10 +1,12 @@
 import java.util.Scanner;
 
-public class Ejerccio6 {
+public class Ejercicio6 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingresa una palabra: ");
         String palabra = scanner.nextLine();
+
+        palabra = palabra.toLowerCase();
 
         boolean esPalindromo = true;
         int n = palabra.length();
@@ -21,5 +23,7 @@ public class Ejerccio6 {
         } else {
             System.out.println("La palabra no es palíndroma.");
         }
+
+        scanner.close(); 
     }
 }
