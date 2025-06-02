@@ -2,23 +2,28 @@ import java.util.Scanner;
 
 public class Ejerccio4 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingresa una frase: ");
-        String frase = scanner.nextLine();
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Ingresa una frase: ");
+            String frase = scanner.nextLine();
 
-        int i = frase.length() - 1;
+            String fraseProcesada = frase.trim();
 
-        // Eliminar espacios al final
-        while (i >= 0 && frase.charAt(i) == ' ') {
-            i--;
+            if (fraseProcesada.isEmpty()) {
+                System.out.println("Frase sin la última palabra: ");
+                return;
+            }
+
+            int ultimoEspacioIndex = fraseProcesada.lastIndexOf(' ');
+
+            String nuevaFrase;
+
+            if (ultimoEspacioIndex == -1) {
+                nuevaFrase = "";
+            } else {
+                nuevaFrase = fraseProcesada.substring(0, ultimoEspacioIndex);
+            }
+
+            System.out.println("Frase sin la última palabra: " + nuevaFrase);
         }
-
-        // Retroceder hasta encontrar el último espacio
-        while (i >= 0 && frase.charAt(i) != ' ') {
-            i--;
-        }
-
-        String nuevaFrase = frase.substring(0, i).trim();
-        System.out.println("Frase sin la última palabra: " + nuevaFrase);
     }
 }
